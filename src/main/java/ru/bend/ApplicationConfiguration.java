@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import ru.bend.processor.OperationProcessor;
+import ru.bend.properties.AccountProperties;
 import ru.bend.service.AccountService;
 import ru.bend.service.OperationsConsoleListener;
 import ru.bend.service.UserService;
@@ -20,10 +21,9 @@ public class ApplicationConfiguration {
 
     @Bean
     public AccountService accountService(
-            @Value("${account.default-amount}") int defaultAmount,
-            @Value("${account.transfer-commission}") int transferCommission
+            AccountProperties accountProperties
     ) {
-        return new AccountService(defaultAmount, transferCommission);
+        return new AccountService(accountProperties);
     }
 
     @Bean

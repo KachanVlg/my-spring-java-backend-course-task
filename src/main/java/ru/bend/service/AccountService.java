@@ -2,6 +2,7 @@ package ru.bend.service;
 
 
 import ru.bend.model.Account;
+import ru.bend.properties.AccountProperties;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,19 +13,17 @@ public class AccountService {
 
     private int lastAccountId;
     private final Map<Integer, Account> accounts;
-    private final int defaultAmount;
-    private final int transferCommission;
+    private final AccountProperties accountProperties;
 
-    public AccountService(int defaultAmount, int transferCommission) {
+    public AccountService(AccountProperties accountProperties) {
         this.lastAccountId = 0;
         this.accounts = new HashMap<>();
-        this.defaultAmount = defaultAmount;
-        this.transferCommission = transferCommission;
+        this.accountProperties = accountProperties;
     }
 
     public Account createAccount(int userId) {
         lastAccountId++;
-        Account account = new Account(lastAccountId, userId, 0);
+        Account account = new Account(lastAccountId, userId, accountProperties.getDefaultAmount());
         accounts.put(lastAccountId, account);
 
         return account;
@@ -72,7 +71,7 @@ public class AccountService {
     }
 
     int applyCommission(int amountToTransfer) {
-        return amountToTransfer * transferCommission / 100;
+        return amountToTransfer * accountProperties.getTransferCommission() / 100;
     }
 
     public void accountTransfer(int idFrom, int idTo, int amountToTransfer) {
@@ -90,7 +89,4 @@ public class AccountService {
         withdrawAccount(idFrom, amountToTransfer);
         depositAccount(idTo, amountToTransfer);
     }
-
-
-
 }
