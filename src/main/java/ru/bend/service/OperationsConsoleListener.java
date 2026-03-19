@@ -1,6 +1,7 @@
 package ru.bend.service;
 
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.OperationType;
 import ru.bend.processor.OperationProcessor;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+@Component
 public class OperationsConsoleListener {
 
     private final Map<OperationType, OperationProcessor> processors;

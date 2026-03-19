@@ -1,8 +1,10 @@
 package ru.bend.processor;
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.OperationType;
 import ru.bend.service.UserService;
 
+@Component
 public class ShowAllUsersProcessor implements OperationProcessor{
 
     private final UserService userService;

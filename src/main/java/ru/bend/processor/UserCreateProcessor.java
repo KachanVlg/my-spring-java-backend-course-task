@@ -1,5 +1,6 @@
 package ru.bend.processor;
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.OperationType;
 import ru.bend.model.User;
 import ru.bend.service.AccountService;
@@ -7,6 +8,7 @@ import ru.bend.service.UserService;
 
 import java.util.Scanner;
 
+@Component
 public class UserCreateProcessor implements OperationProcessor{
 
     private final Scanner scanner;

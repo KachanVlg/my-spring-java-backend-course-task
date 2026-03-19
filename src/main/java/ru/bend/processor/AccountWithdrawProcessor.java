@@ -1,10 +1,12 @@
 package ru.bend.processor;
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.OperationType;
 import ru.bend.service.AccountService;
 
 import java.util.Scanner;
 
+@Component
 public class AccountWithdrawProcessor implements OperationProcessor{
 
 

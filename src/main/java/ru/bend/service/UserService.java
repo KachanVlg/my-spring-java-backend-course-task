@@ -1,9 +1,11 @@
 package ru.bend.service;
+import org.springframework.stereotype.Component;
 import ru.bend.model.Account;
 import ru.bend.model.User;
 
 import java.util.*;
 
+@Component
 public class UserService {
 
     private int lastUserId;

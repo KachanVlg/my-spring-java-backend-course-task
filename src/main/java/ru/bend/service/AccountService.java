@@ -1,6 +1,7 @@
 package ru.bend.service;
 
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.Account;
 import ru.bend.properties.AccountProperties;
 
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Component
 public class AccountService {
 
 

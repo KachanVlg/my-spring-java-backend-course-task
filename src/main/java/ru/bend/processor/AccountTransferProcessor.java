@@ -1,11 +1,13 @@
 package ru.bend.processor;
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.OperationType;
 import ru.bend.service.AccountService;
 import ru.bend.service.UserService;
 
 import java.util.Scanner;
 
+@Component
 public class AccountTransferProcessor implements OperationProcessor{
 
     private final AccountService accountService;

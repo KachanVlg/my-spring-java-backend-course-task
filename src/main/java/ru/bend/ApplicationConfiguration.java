@@ -15,29 +15,10 @@ import java.util.List;
 import java.util.Scanner;
 
 @Configuration
-@PropertySource("classpath:application.properties")
 public class ApplicationConfiguration {
-
-
-    @Bean
-    public AccountService accountService(
-            AccountProperties accountProperties
-    ) {
-        return new AccountService(accountProperties);
-    }
-
-    @Bean
-    public UserService userService(AccountService accountService) {
-        return new UserService(accountService);
-    }
-
     @Bean
     public Scanner scanner() {
         return new Scanner(System.in);
     }
 
-    @Bean
-    public OperationsConsoleListener operationsConsoleListener(List<OperationProcessor> processors, Scanner scanner) {
-        return new OperationsConsoleListener(processors, scanner);
-    }
 }

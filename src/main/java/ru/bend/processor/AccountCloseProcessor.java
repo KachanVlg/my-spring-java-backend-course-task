@@ -1,5 +1,6 @@
 package ru.bend.processor;
 
+import org.springframework.stereotype.Component;
 import ru.bend.model.Account;
 import ru.bend.model.OperationType;
 import ru.bend.model.User;
@@ -9,6 +10,8 @@ import ru.bend.service.UserService;
 import java.util.List;
 import java.util.Scanner;
 
+
+@Component
 public class AccountCloseProcessor implements OperationProcessor{
 
     private final AccountService accountService;
